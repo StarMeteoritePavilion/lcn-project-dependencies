@@ -1,2 +1,2 @@
 # project-dependencies
-manage the base dependencies in all spring project
+manage the base dependencies in all project
