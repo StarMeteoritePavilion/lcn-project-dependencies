@@ -29,6 +29,10 @@
         <fastjson.version>1.2.62</fastjson.version>
         <!--  access security -->
         <java.jwt.version>3.8.3</java.jwt.version>
+
+        <!-- util -->
+        <okhttp.version>4.3.1</okhttp.version>
+
         <!-- plugin version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>3.0.0-M4</maven.surefire.plugin.version>
@@ -81,6 +85,13 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
