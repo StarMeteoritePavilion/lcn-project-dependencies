@@ -32,6 +32,7 @@
 
         <!-- util -->
         <okhttp.version>4.3.1</okhttp.version>
+        <javax.el.version>3.0.1-b11</javax.el.version>
 
         <!-- plugin version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -90,6 +91,13 @@
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp.version}</version>
+            </dependency>
+
+            <!--    use for hibernate-validator  -->
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.el</artifactId>
+                <version>${javax.el.version}</version>
             </dependency>
 
         </dependencies>
