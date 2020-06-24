@@ -13,26 +13,27 @@
         <!-- project setting -->
         <revision>1.0.0.RELEASE</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+        <java.version>14</java.version>
 
         <!-- dependencies version -->
 
         <!-- spring  -->
-        <spring.boot.version>2.2.2.RELEASE</spring.boot.version>
-        <spring.cloud.version>Hoxton.SR1</spring.cloud.version>
+        <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR5</spring.cloud.version>
         <!--  db  -->
         <mysql.version>8.0.18</mysql.version>
         <mybatis.stater.version>2.1.1</mybatis.stater.version>
         <druid.starter.version>1.1.21</druid.starter.version>
         <pagehelper.starter.version>1.2.13</pagehelper.starter.version>
-        <!--  web  -->
-        <fastjson.version>1.2.62</fastjson.version>
+        <!--  json  -->
+        <jackson.version>2.11.0</jackson.version>
         <!--  access security -->
         <java.jwt.version>3.8.3</java.jwt.version>
 
         <!-- util -->
         <okhttp.version>4.3.1</okhttp.version>
         <javax.el.version>3.0.1-b11</javax.el.version>
+        <lombok.version>1.18.12</lombok.version>
 
         <!-- plugin version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -82,15 +83,26 @@
             </dependency>
 
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
 
             <!--    use for hibernate-validator  -->
