@@ -10,106 +10,76 @@
     <packaging>pom</packaging>
 
     <properties>
-        <!-- project setting -->
-        <revision>1.0.0.RELEASE</revision>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>14</java.version>
 
-        <!-- dependencies version -->
+        <!-- project setting -->
+        <revision>0.0.1-SNAPSHOT</revision>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>17</java.version>
+
 
         <!-- spring  -->
-        <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
-        <spring.cloud.version>Hoxton.SR5</spring.cloud.version>
-        <!--  db  -->
-        <mysql.version>8.0.28</mysql.version>
-        <mybatis.stater.version>2.1.1</mybatis.stater.version>
-        <druid.starter.version>1.1.21</druid.starter.version>
-        <pagehelper.starter.version>1.2.13</pagehelper.starter.version>
-        <!--  json  -->
-        <jackson.version>2.12.6.1</jackson.version>
-        <!--  access security -->
-        <java.jwt.version>3.8.3</java.jwt.version>
+        <spring-boot-dependencies.version>2.7.5</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>2021.0.5</spring-cloud-dependencies.version>
 
-        <!-- util -->
-        <okhttp.version>4.3.1</okhttp.version>
-        <javax.el.version>3.0.1-b11</javax.el.version>
-        <lombok.version>1.18.12</lombok.version>
+        <!--  database  -->
+        <mysql-connector-java.version>8.0.31</mysql-connector-java.version>
+        <hikaricp.version>4.0.3</hikaricp.version>
+        <mybatis-spring-boot-starter.version>2.2.2</mybatis-spring-boot-starter.version>
+        <mybatis-plus-boot-starter.version>1.4.5</mybatis-plus-boot-starter.version>
+
+        <lombok.version>1.18.24</lombok.version>
 
         <!-- plugin version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>3.0.0-M4</maven.surefire.plugin.version>
-        <flatten.maven.plugin.version>1.1.0</flatten.maven.plugin.version>
-        <mybatis.generator.plugin.version>1.4.0</mybatis.generator.plugin.version>
+        <flatten.maven.plugin.version>1.3.0</flatten.maven.plugin.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
 
+            <!-- spring -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>${spring-boot-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
+                <version>${spring-cloud-dependencies.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
 
+            <!-- database -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${hikaricp.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.stater.version}</version>
+                <version>${mybatis-spring-boot-starter.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid-spring-boot-starter</artifactId>
-                <version>${druid.starter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper.starter.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus-boot-starter.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.auth0</groupId>
-                <artifactId>java-jwt</artifactId>
-                <version>${java.jwt.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <artifactId>jackson-datatype-jsr310</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>${okhttp.version}</version>
-            </dependency>
-
+            <!-- utils -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-            </dependency>
-
-            <!--    use for hibernate-validator  -->
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.el</artifactId>
-                <version>${javax.el.version}</version>
             </dependency>
 
         </dependencies>
@@ -155,33 +125,6 @@
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                     </configuration>
-                </plugin>
-                <!-- compiler skip test -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven.surefire.plugin.version}</version>
-                    <configuration>
-                        <skipTests>true</skipTests>
-                    </configuration>
-                </plugin>
-                <!-- mybatis core generator -->
-                <plugin>
-                    <groupId>org.mybatis.generator</groupId>
-                    <artifactId>mybatis-generator-maven-plugin</artifactId>
-                    <version>${mybatis.generator.plugin.version}</version>
-                    <configuration>
-                        <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
-                        <verbose>true</verbose>
-                        <overwrite>true</overwrite>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>mysql</groupId>
-                            <artifactId>mysql-connector-java</artifactId>
-                            <version>${mysql.version}</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
