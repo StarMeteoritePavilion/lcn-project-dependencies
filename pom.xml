@@ -4,32 +4,33 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.lcn29</groupId>
-    <artifactId>project-dependencies</artifactId>
+    <groupId>io.github.lcn29</groupId>
+    <artifactId>lcn-project-dependencies</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
     <properties>
-
-        <!-- project setting -->
+        <!-- project -->
         <revision>0.0.1-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-
-
-        <!-- spring  -->
+        <java.version>1.8</java.version>
+        <!-- dependencies -->
         <spring-boot-dependencies.version>2.7.5</spring-boot-dependencies.version>
         <spring-cloud-dependencies.version>2021.0.5</spring-cloud-dependencies.version>
-
-        <!--  database  -->
         <mysql-connector-java.version>8.0.31</mysql-connector-java.version>
-        <hikaricp.version>4.0.3</hikaricp.version>
+        <druid.version>1.2.8</druid.version>
+        <mybaits.version>3.5.6</mybaits.version>
         <mybatis-spring-boot-starter.version>2.2.2</mybatis-spring-boot-starter.version>
-        <mybatis-plus-boot-starter.version>1.4.5</mybatis-plus-boot-starter.version>
-
+        <mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
+        <shardingsphere-jdbc-core-spring-boot-starter.version>5.1.2
+        </shardingsphere-jdbc-core-spring-boot-starter.version>
+        <disruptor.version>3.4.2</disruptor.version>
+        <log4j-web.version>2.17.1</log4j-web.version>
+        <orika-core.version>1.5.4</orika-core.version>
+        <redisson.version>3.17.7</redisson.version>
         <lombok.version>1.18.24</lombok.version>
-
-        <!-- plugin version -->
+        <fastjson2.vesion>2.0.23</fastjson2.vesion>
+        <!-- plugin -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <flatten.maven.plugin.version>1.3.0</flatten.maven.plugin.version>
     </properties>
@@ -60,22 +61,60 @@
                 <version>${mysql-connector-java.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.zaxxer</groupId>
-                <artifactId>HikariCP</artifactId>
-                <version>${hikaricp.version}</version>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybaits.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-typehandlers-jsr310</artifactId>
+                <version>${mybatis-typehandlers-jsr310.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-spring-boot-starter.version}</version>
             </dependency>
+
+            <!-- log4j2 -->
             <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus-boot-starter.version}</version>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-web</artifactId>
+                <version>${log4j-web.version}</version>
             </dependency>
 
-            <!-- utils -->
+            <!-- redisson -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <!-- orika: a bean copy util -->
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika-core.version}</version>
+            </dependency>
+
+            <!-- fastjson2 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson2.vesion}</version>
+            </dependency>
+
+            <!-- lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -134,6 +173,10 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
