@@ -123,6 +123,10 @@
     </dependencyManagement>
 
     <build>
+
+        <!-- package jar name -->
+        <finalName>${project.artifactId}-${project.version}</finalName>
+
         <pluginManagement>
             <plugins>
                 <!-- use the really value replace the config property in the pom file-->
