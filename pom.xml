@@ -3,34 +3,43 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>io.github.lcn29</groupId>
     <artifactId>lcn-project-dependencies</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
     <properties>
-        <!-- project -->
-        <revision>0.0.1-SNAPSHOT</revision>
+
+        <!-- project setting -->
+        <revision>0.0.1</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <!-- dependencies -->
+        <!-- spring  -->
         <spring-boot-dependencies.version>2.7.5</spring-boot-dependencies.version>
         <spring-cloud-dependencies.version>2021.0.5</spring-cloud-dependencies.version>
+        <!--database source-->
         <mysql-connector-java.version>8.0.31</mysql-connector-java.version>
         <druid.version>1.2.8</druid.version>
         <mybatis-spring-boot-starter.version>2.2.2</mybatis-spring-boot-starter.version>
         <mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
         <shardingsphere-jdbc-core-spring-boot-starter.version>5.1.2</shardingsphere-jdbc-core-spring-boot-starter.version>
+        <!-- log4j2 -->
         <disruptor.version>3.4.2</disruptor.version>
         <log4j-web.version>2.17.1</log4j-web.version>
+        <!-- orika: a bean copy util -->
         <orika-core.version>1.5.4</orika-core.version>
+        <!-- redisson -->
         <redisson.version>3.17.7</redisson.version>
-        <lombok.version>1.18.24</lombok.version>
+        <!--Rocket MQ-->
+        <rocketmq-spring-boot.version>2.2.1</rocketmq-spring-boot.version>
+        <!-- fastjson2 -->
         <fastjson2.vesion>2.0.23</fastjson2.vesion>
+        <!-- lombok -->
+        <lombok.version>1.18.24</lombok.version>
         <!-- plugin -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <flatten.maven.plugin.version>1.3.0</flatten.maven.plugin.version>
+        <spring-boot-maven-plugin.version>2.7.5</spring-boot-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -123,10 +132,6 @@
     </dependencyManagement>
 
     <build>
-
-        <!-- package jar name -->
-        <finalName>${project.artifactId}-${project.version}</finalName>
-
         <pluginManagement>
             <plugins>
                 <!-- use the really value replace the config property in the pom file-->
@@ -182,6 +187,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
